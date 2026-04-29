@@ -31,7 +31,7 @@ def teardown(driver):
 # TC_011: Sort by Price Low to High
 # -----------------------------------------------
 def test_sort_price_low_to_high():
-    print("\n🔵 TC_011: Sort Products — Price Low to High")
+    print("\n TC_011: Sort Products — Price Low to High")
     driver = setup()
     try:
         sort = Select(driver.find_element(By.CLASS_NAME, "product_sort_container"))
@@ -42,11 +42,11 @@ def test_sort_price_low_to_high():
         price_values = [float(p.text.replace("$", "")) for p in prices]
 
         assert price_values == sorted(price_values)
-        print(f"   ✅ PASSED — Prices sorted Low→High: {price_values}")
+        print(f"    PASSED — Prices sorted Low→High: {price_values}")
     except AssertionError:
-        print("   ❌ FAILED — Prices not sorted correctly")
+        print("    FAILED — Prices not sorted correctly")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
@@ -65,11 +65,11 @@ def test_sort_price_high_to_low():
         price_values = [float(p.text.replace("$", "")) for p in prices]
 
         assert price_values == sorted(price_values, reverse=True)
-        print(f"   ✅ PASSED — Prices sorted High→Low: {price_values}")
+        print(f"    PASSED — Prices sorted High→Low: {price_values}")
     except AssertionError:
-        print("   ❌ FAILED — Prices not sorted correctly")
+        print("    FAILED — Prices not sorted correctly")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
@@ -88,11 +88,11 @@ def test_sort_name_az():
         name_values = [n.text for n in names]
 
         assert name_values == sorted(name_values)
-        print(f"   ✅ PASSED — Products sorted A→Z correctly")
+        print(f"    PASSED — Products sorted A→Z correctly")
     except AssertionError:
-        print("   ❌ FAILED — Products not sorted A→Z")
+        print("    FAILED — Products not sorted A→Z")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
@@ -100,7 +100,7 @@ def test_sort_name_az():
 # TC_014: Product Detail Page
 # -----------------------------------------------
 def test_product_detail_page():
-    print("\n🔵 TC_014: Product Detail Page Test")
+    print("\n TC_014: Product Detail Page Test")
     driver = setup()
     try:
         first_product = driver.find_element(By.CLASS_NAME, "inventory_item_name")
@@ -110,11 +110,11 @@ def test_product_detail_page():
 
         detail_name = driver.find_element(By.CLASS_NAME, "inventory_details_name").text
         assert product_name == detail_name
-        print(f"   ✅ PASSED — Product detail page loaded: '{product_name}'")
+        print(f"    PASSED — Product detail page loaded: '{product_name}'")
     except AssertionError:
-        print("   ❌ FAILED — Product name mismatch on detail page")
+        print("    FAILED — Product name mismatch on detail page")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
@@ -122,7 +122,7 @@ def test_product_detail_page():
 # TC_015: Logout Test
 # -----------------------------------------------
 def test_logout():
-    print("\n🔵 TC_015: Logout Test")
+    print("\n TC_015: Logout Test")
     driver = setup()
     try:
         driver.find_element(By.ID, "react-burger-menu-btn").click()
@@ -131,11 +131,11 @@ def test_logout():
         time.sleep(1)
         assert driver.current_url == f"{BASE_URL}/"
         assert driver.find_element(By.ID, "login-button").is_displayed()
-        print("   ✅ PASSED — Logout successful, redirected to login page")
+        print("    PASSED — Logout successful, redirected to login page")
     except AssertionError:
-        print("   ❌ FAILED — Logout did not redirect to login")
+        print("    FAILED — Logout did not redirect to login")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
