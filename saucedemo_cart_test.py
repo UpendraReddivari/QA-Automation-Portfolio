@@ -33,17 +33,17 @@ def teardown(driver):
 # TC_006: Inventory Page Load Test
 # -----------------------------------------------
 def test_inventory_page_loaded():
-    print("\n🔵 TC_006: Inventory Page Load Test")
+    print("\n TC_006: Inventory Page Load Test")
     driver = setup()
     try:
         assert "inventory" in driver.current_url
         products = driver.find_elements(By.CLASS_NAME, "inventory_item")
         assert len(products) > 0
-        print(f"   ✅ PASSED — Inventory loaded with {len(products)} products")
+        print(f"    PASSED — Inventory loaded with {len(products)} products")
     except AssertionError:
-        print("   ❌ FAILED — Inventory page not loaded properly")
+        print("    FAILED — Inventory page not loaded properly")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
@@ -51,7 +51,7 @@ def test_inventory_page_loaded():
 # TC_007: Add Product to Cart
 # -----------------------------------------------
 def test_add_to_cart():
-    print("\n🔵 TC_007: Add Product to Cart Test")
+    print("\n TC_007: Add Product to Cart Test")
     driver = setup()
     try:
         # Add first product to cart
@@ -59,11 +59,11 @@ def test_add_to_cart():
         time.sleep(1)
         cart_count = driver.find_element(By.CLASS_NAME, "shopping_cart_badge").text
         assert cart_count == "1"
-        print(f"   ✅ PASSED — Product added, cart count: {cart_count}")
+        print(f"    PASSED — Product added, cart count: {cart_count}")
     except AssertionError:
-        print("   ❌ FAILED — Cart count not updated")
+        print("    FAILED — Cart count not updated")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
@@ -71,7 +71,7 @@ def test_add_to_cart():
 # TC_008: Remove Product from Cart
 # -----------------------------------------------
 def test_remove_from_cart():
-    print("\n🔵 TC_008: Remove Product from Cart Test")
+    print("\n TC_008: Remove Product from Cart Test")
     driver = setup()
     try:
         # Add then remove
@@ -81,11 +81,11 @@ def test_remove_from_cart():
         time.sleep(1)
         badges = driver.find_elements(By.CLASS_NAME, "shopping_cart_badge")
         assert len(badges) == 0
-        print("   ✅ PASSED — Product removed, cart is empty")
+        print("    PASSED — Product removed, cart is empty")
     except AssertionError:
-        print("   ❌ FAILED — Cart badge still visible after removal")
+        print("    FAILED — Cart badge still visible after removal")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
@@ -93,7 +93,7 @@ def test_remove_from_cart():
 # TC_009: Navigate to Cart Page
 # -----------------------------------------------
 def test_navigate_to_cart():
-    print("\n🔵 TC_009: Navigate to Cart Page Test")
+    print("\n TC_009: Navigate to Cart Page Test")
     driver = setup()
     try:
         driver.find_element(By.CSS_SELECTOR, ".inventory_item button").click()
@@ -103,11 +103,11 @@ def test_navigate_to_cart():
         assert "cart" in driver.current_url
         cart_items = driver.find_elements(By.CLASS_NAME, "cart_item")
         assert len(cart_items) > 0
-        print(f"   ✅ PASSED — Cart page loaded with {len(cart_items)} item(s)")
+        print(f"    PASSED — Cart page loaded with {len(cart_items)} item(s)")
     except AssertionError:
-        print("   ❌ FAILED — Cart page not loaded")
+        print("    FAILED — Cart page not loaded")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
@@ -115,7 +115,7 @@ def test_navigate_to_cart():
 # TC_010: Complete Checkout Flow (E2E)
 # -----------------------------------------------
 def test_checkout_flow():
-    print("\n🔵 TC_010: End-to-End Checkout Flow Test")
+    print("\n TC_010: End-to-End Checkout Flow Test")
     driver = setup()
     try:
         # Add product
@@ -144,12 +144,12 @@ def test_checkout_flow():
         # Verify order confirmation
         confirmation = driver.find_element(By.CLASS_NAME, "complete-header")
         assert "Thank you" in confirmation.text
-        print(f"   ✅ PASSED — E2E checkout complete: '{confirmation.text}'")
+        print(f"    PASSED — E2E checkout complete: '{confirmation.text}'")
 
     except AssertionError:
-        print("   ❌ FAILED — Checkout flow not completed")
+        print("    FAILED — Checkout flow not completed")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
