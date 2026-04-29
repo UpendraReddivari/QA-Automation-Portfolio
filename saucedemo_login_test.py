@@ -27,7 +27,7 @@ def teardown(driver):
 # TC_001: Valid Login Test
 # -----------------------------------------------
 def test_valid_login():
-    print("\n🔵 TC_001: Valid Login Test")
+    print("\n TC_001: Valid Login Test")
     driver = setup()
     try:
         driver.get(BASE_URL)
@@ -36,11 +36,11 @@ def test_valid_login():
         driver.find_element(By.ID, "login-button").click()
         time.sleep(2)
         assert "inventory" in driver.current_url
-        print("   ✅ PASSED — Valid login redirected to inventory page")
+        print("    PASSED — Valid login redirected to inventory page")
     except AssertionError:
-        print("   ❌ FAILED — Inventory page not loaded")
+        print("    FAILED — Inventory page not loaded")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
@@ -48,7 +48,7 @@ def test_valid_login():
 # TC_002: Invalid Login Test
 # -----------------------------------------------
 def test_invalid_login():
-    print("\n🔵 TC_002: Invalid Credentials Test")
+    print("\n TC_002: Invalid Credentials Test")
     driver = setup()
     try:
         driver.get(BASE_URL)
@@ -58,11 +58,11 @@ def test_invalid_login():
         time.sleep(1)
         error = driver.find_element(By.CSS_SELECTOR, "[data-test='error']")
         assert error.is_displayed()
-        print(f"   ✅ PASSED — Error shown: {error.text[:60]}")
+        print(f"    PASSED — Error shown: {error.text[:60]}")
     except AssertionError:
-        print("   ❌ FAILED — No error message displayed")
+        print("    FAILED — No error message displayed")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
@@ -70,7 +70,7 @@ def test_invalid_login():
 # TC_003: Locked Out User Test
 # -----------------------------------------------
 def test_locked_out_user():
-    print("\n🔵 TC_003: Locked Out User Test")
+    print("\n TC_003: Locked Out User Test")
     driver = setup()
     try:
         driver.get(BASE_URL)
@@ -80,11 +80,11 @@ def test_locked_out_user():
         time.sleep(1)
         error = driver.find_element(By.CSS_SELECTOR, "[data-test='error']")
         assert "locked out" in error.text.lower()
-        print("   ✅ PASSED — Locked out user error displayed correctly")
+        print("    PASSED — Locked out user error displayed correctly")
     except AssertionError:
-        print("   ❌ FAILED — Locked out message not shown")
+        print("    FAILED — Locked out message not shown")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
@@ -92,7 +92,7 @@ def test_locked_out_user():
 # TC_004: Empty Username Test
 # -----------------------------------------------
 def test_empty_username():
-    print("\n🔵 TC_004: Empty Username Validation Test")
+    print("\n TC_004: Empty Username Validation Test")
     driver = setup()
     try:
         driver.get(BASE_URL)
@@ -101,11 +101,11 @@ def test_empty_username():
         time.sleep(1)
         error = driver.find_element(By.CSS_SELECTOR, "[data-test='error']")
         assert "Username is required" in error.text
-        print("   ✅ PASSED — Username required validation working")
+        print("    PASSED — Username required validation working")
     except AssertionError:
-        print("   ❌ FAILED — Username validation not triggered")
+        print("    FAILED — Username validation not triggered")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
@@ -113,7 +113,7 @@ def test_empty_username():
 # TC_005: Empty Password Test
 # -----------------------------------------------
 def test_empty_password():
-    print("\n🔵 TC_005: Empty Password Validation Test")
+    print("\n TC_005: Empty Password Validation Test")
     driver = setup()
     try:
         driver.get(BASE_URL)
@@ -122,11 +122,11 @@ def test_empty_password():
         time.sleep(1)
         error = driver.find_element(By.CSS_SELECTOR, "[data-test='error']")
         assert "Password is required" in error.text
-        print("   ✅ PASSED — Password required validation working")
+        print("    PASSED — Password required validation working")
     except AssertionError:
-        print("   ❌ FAILED — Password validation not triggered")
+        print("    FAILED — Password validation not triggered")
     except Exception as e:
-        print(f"   ❌ ERROR — {e}")
+        print(f"    ERROR — {e}")
     finally:
         teardown(driver)
 
