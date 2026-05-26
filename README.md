@@ -2,9 +2,7 @@
 
 **SDET | QA Automation Engineer | API & Microservices Testing | CI/CD | Python | Selenium**
 
-📍 Bengaluru, Karnataka, India
-📧 reddivariupendra.mits@gmail.com
-📞 +91 9390880035
+📍 Bengaluru, Karnataka, India | 📧 reddivariupendra.mits@gmail.com | 📞 +91 9390880035
 🔗 [LinkedIn](https://linkedin.com/in/reddivari-upendra-716499247) | [GitHub Portfolio](https://github.com/UpendraReddivari/QA-Automation-Portfolio)
 
 ---
